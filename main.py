@@ -1,10 +1,9 @@
 import argparse
-import logging
 
+import chisquare
+import logger
 import lsb
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
 parser = argparse.ArgumentParser(description='Process some images. Embed, chi-square analysis and LS analysis.')
 parser.add_argument('path', type=str,
                     help='Input or output path')
@@ -19,7 +18,12 @@ if __name__ == "__main__":
 
     path, ifEmbed, ifChi, ifRS = args.path, args.embed, args.chi, args.rs
 
-    logger.debug("Command Status:\tPath:{}\tEmbed:{}\tChi:{}\tRS:{}\t".format(path, ifEmbed, ifChi, ifRS))
+    if ifChi or ifRS:
+        ifEmbed = False  # Convert ifEmbed to false manually
+
+    logger.logger.debug("Command Status:\tPath:{}\tEmbed:{}\tChi:{}\tRS:{}\t".format(path, ifEmbed, ifChi, ifRS))
 
     if ifEmbed:
         lsb.embed(path)
+    if ifChi:
+        chisquare.chi(path)

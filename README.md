@@ -19,9 +19,11 @@
 
 [实验:基于奇偶校验的LSB算法及卡方分析 | 烏巢 (hejueyun.github.io)](https://hejueyun.github.io/posts/42a865c0/)
 
+[RS（Regular Singular）隐写分析及实现_咸鱼.m的博客-CSDN博客_rs隐写分析](https://blog.csdn.net/qq_37207042/article/details/106166181)
+
 ## Target
 
-图片内嵌入了文字`Across the Great Wall We can Reach Every Corner of the World`,尝试使用卡方分析和RS分析检测。
+图片使用LSB进行隐写，尝试使用卡方分析和RS分析检测。
 
 
 
@@ -63,4 +65,8 @@ options:
 
 更大的嵌入率可以得到更显著的结果
 
-处于简便考虑，秘文为随机生成的英文字符串。
+仅限灰度图像
+
+处于简便考虑，秘文为随机生成的01流，可控嵌入率。
+
+Chi-square分析对于程序中的随机嵌入效果不好。
