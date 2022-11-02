@@ -10,7 +10,7 @@ def chi(path: str):
     Run chi-square analysis. Return p group.
     """
     logger.logger.debug("Running chi")
-    img = bmputil.BmpController(path)
+    img = bmputil.BmpUtil(path)
     pixel_counter = np.zeros(256, dtype=int)
     for i in range(len(img.image)):
         for j in range(len(img.image[0])):

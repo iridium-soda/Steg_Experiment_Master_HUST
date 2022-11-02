@@ -7,7 +7,7 @@ import logger
 
 def embed(path: str):
     logger.logger.debug("Running embed")
-    img = bmputil.BmpController(path)
+    img = bmputil.BmpUtil(path)
     embed_rate = 1
     '''
     Generate random secret according to embed_rate
