@@ -47,18 +47,26 @@ def flip(pixel_group: [int], mode: [int]) -> [int]:
     1 = 0<->1
     -1 = 0<-> -1
     """
-    tmp = pixel_group
-    assert (len(pixel_group) == len(mode))
-    for index, pix in enumerate(pixel_group):
+    pix_group = pixel_group[:]  # Deep copy to prevent pollute original matrix
+    tmp = pix_group[:]
+
+    assert (len(pix_group) == len(mode))
+    for index, pix in enumerate(pix_group):
         if mode[index] == 1:
-            pixel_group[index] = pix // 2 * 2
-        elif mode[index] == -1:
-            if pix % 2:  # TODO: can be replaced by ONE formula like above?
-                pixel_group[index] = pix + 1
+            if pix % 2:
+                pix_group[index] -= 1
             else:
-                pixel_group[index] = pix - 1
-    logger.logger.debug("Pixel group {} was replaced to {} by mode {}".format(tmp, pixel_group, mode))
-    return pixel_group
+                pix_group[index] += 1
+        elif mode[index] == -1:
+            if pix % 2:
+                pix_group[index] += 1
+            else:
+                pix_group[index] -= 1
+        else:  # Should be 0 here
+            pass
+        # logger.logger.debug("Pix {} was replaced to {} by mode {}".format(pix, pix_group[index], mode[index]))
+    logger.logger.debug("Pixel group {} was replaced to {} by mode {}".format(tmp, pix_group, mode))
+    return pix_group
 
 
 def cal_smoothness(pixel_group: [int]) -> int:
@@ -69,5 +77,4 @@ def cal_smoothness(pixel_group: [int]) -> int:
     acc_smoothness = 0
     for i in range(len(pixel_group) - 1):
         acc_smoothness += abs(pixel_group[i + 1] - pixel_group[i])
-    logger.logger.debug("Pixel group {}'s smoothness is {}", format(pixel_group, acc_smoothness))
     return acc_smoothness

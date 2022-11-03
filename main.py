@@ -1,5 +1,6 @@
 import argparse
 
+import RSanalysis
 import chisquare
 import logger
 import lsb
@@ -27,3 +28,5 @@ if __name__ == "__main__":
         lsb.embed(path)
     if ifChi:
         chisquare.chi(path)
+    if ifRS:
+        RSanalysis.rs(path)
