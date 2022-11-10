@@ -39,7 +39,7 @@ class BmpUtil:
         return [collection[i] for i in range(self.depth)]  # Convert dict to ordered list
 
 
-def flip(pixel_group: [int], mode: [int]) -> [int]:
+def flip(pixel_group, mode) :
     """
     Flip pixel groups by mode, return flipped group
     mode:
@@ -69,7 +69,7 @@ def flip(pixel_group: [int], mode: [int]) -> [int]:
     return pix_group
 
 
-def cal_smoothness(pixel_group: [int]) -> int:
+def cal_smoothness(pixel_group) -> int:
     """
     To calculate smoothness by formula:
     f({x_i})=\sum_{i=1}^{n-1} |x_{i+1}-x_i|

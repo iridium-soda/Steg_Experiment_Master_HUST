@@ -7,7 +7,7 @@ import logger
 
 def chi(path: str):
     """
-    Run chi-square analysis. Return p group.
+    Run chi-square analysis. Return p.
     """
     logger.logger.debug("Running chi")
     img = bmputil.BmpUtil(path)
