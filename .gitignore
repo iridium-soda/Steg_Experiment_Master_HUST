@@ -243,3 +243,4 @@ pyvenv.cfg
 Include/
 *.bmp
 embed_1_1668563775.bmp
+.DS_Store
