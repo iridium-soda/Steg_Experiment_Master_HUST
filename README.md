@@ -21,15 +21,9 @@
 
 [RS（Regular Singular）隐写分析及实现_咸鱼.m的博客-CSDN博客_rs隐写分析](https://blog.csdn.net/qq_37207042/article/details/106166181)
 
-## Target
-
-图片使用LSB进行隐写，尝试使用卡方分析和RS分析检测。
-
 
 
 ## Usage
-
->   在venv下开发和执行。
 
 Install dependency
 
@@ -54,12 +48,6 @@ options:
   -r, --rs     Analysis image by RS
 
 ```
-
-
-
-## Dependency
-
-
 
 ## Tips
 
